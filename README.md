@@ -1,4 +1,4 @@
-iot based-traffic management
+<h1>Iot Based-Traffic Management</h1>
 IoT-based traffic management refers to the use of Internet of Things (IoT) technology to monitor, control, and optimize traffic flow in urban areas. Here's how it works:
 
 1. Sensors and Devices: IoT traffic management systems deploy a network of sensors and devices throughout the city. These sensors can include cameras, smart traffic lights, vehicle detectors, and environmental sensors.
