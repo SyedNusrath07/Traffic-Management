@@ -169,6 +169,7 @@ could include social media campaigns, partnerships with local authorities, or
 
 promotions targeting commuters.
 
+
 ## • Launch:
 Release the platform to the public, making announcements through 
 
@@ -208,3 +209,92 @@ and functional solution that effectively addresses traffic management challenges
 providing a seamless experience for users. Remember that staying responsive to user 
 
 needs and technological advancements is key to long-term success.
+
+<h1>PHASE 3:Traffic Management System</h1>
+
+Objectives:
+● Monitor real-time traffic conditions at strategic locations.
+
+● Collect data on traffic flow, density, and speed.
+
+● Provide actionable insights for traffic management and city planning.
+
+1. Description:
+       Give the title and description to reflect that this is a traffic management project.
+
+2. Hardware Setup:
+       In the Wokwi workspace, use the IoT board to a suitable board for traffic management, such
+as "NodeMCU" or "ESP8266."
+
+3. Connect New Sensors:
+       Connect the new traffic sensors to the IoT board as required. Ensure that you follow the
+wiring instructions for the specific sensors you are using.
+
+4. Code:
+       The code to accommodate the new sensors and the requirements of a traffic management
+system. For example,to develop a Python script on the loT devices to send real-time traffic
+data to the traffic information platform
+
+import paho.mqtt.client as mqtt
+import json
+import time
+from random import randint
+
+# Simulating traffic data
+def generate_traffic_data():
+return {
+'location': 'Intersection A',
+'timestamp': int(time.time()),
+'traffic_level': randint(1, 5) # Random traffic level for
+demonstration
+}
+
+# MQTT settings
+mqtt_broker = 'your_broker_address'
+mqtt_topic = 'traffic_data_topic'
+
+# Callbacks
+def on_connect(client, userdata, flags, rc):
+print(f"Connected with result code {rc}")
+client.subscribe(mqtt_topic)
+def on_publish(client, userdata, mid):
+print(f"Message {mid} published.")
+
+# Create MQTT client
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_publish = on_publish
+
+# Connect to broker
+client.connect(mqtt_broker, 1883, 60)
+
+# Main loop
+try:
+while True:
+traffic_data = generate_traffic_data()
+payload = json.dumps(traffic_data)
+
+# Publish data to the topic
+client.publish(mqtt_topic, payload)
+
+# Sleep for a short interval (e.g., 1 second)
+time.sleep(1)
+except KeyboardInterrupt:
+print("Script terminated by user.")
+client.disconnect()
+
+5. Simulate the Traffic Management System:
+       Click the "Run Simulation" button to test your modified code with the new sensors.
+Ensure that the IoT board simulates the traffic management tasks and provides real-time
+data related to traffic conditions.
+
+6. Monitor and Debug:
+       Use the Wokwi Serial Monitor to observe and debug your code .
+Process further when there is no any issues.
+
+7. Simulated Image:
+       The IoT Traffic Monitoring System offers a technological solution to the challenges of urban
+traffic, providing decision-makers with valuable insights for better traffic management and
+fostering a data-driven approach to city planning. The project represents a step towards
+smart cities that leverage IoT technologies to create more efficient and sustainable urban
+environments.
